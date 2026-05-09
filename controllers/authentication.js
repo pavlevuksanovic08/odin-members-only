@@ -1,7 +1,8 @@
 const bcryptjs = require('bcryptjs');
 const userModel = require('../models/userModel')
+const passport = require('passport')
 
-exports.getSingUp = async (req, res) => {
+exports.getSingUp = (req, res) => {
     res.render('singup');
 }
 
@@ -20,4 +21,15 @@ exports.postSingUp = async (req, res, next) => {
         console.error(err);
         next(err);
     }
+}
+
+exports.getLogIn = (req, res) => {
+    res.render("login");
+}
+
+exports.postLogIn = (req, res, next) => {
+    passport.authenticate("local", {
+        successRedirect: "/",
+        failureRedirect: "/"
+    })(req, res, next)
 }
