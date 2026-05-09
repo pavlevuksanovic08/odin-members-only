@@ -5,5 +5,6 @@ const authController = require('../controllers/authentication');
 
 router.get('/', (req, res) => res.send("<p>you are on index route</p>"));
 router.get('/sing-up', authController.getSingUp);
+router.post('/sing-up', authController.postSingUp)
 
 module.exports = router;
