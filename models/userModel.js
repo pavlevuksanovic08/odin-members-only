@@ -6,3 +6,11 @@ exports.addUser = async (data, password) => {
             VALUES ($1, $2, $3, $4);
         `, [data.first, data.last, data.username, data.password]);
 }
+
+exports.getUserByUsername = async (username) => {
+    const {rows} = await pool.query(`
+            SELECT * FROM users
+            WHERE username = $1;
+        `, [username])
+    return rows[0];
+}
