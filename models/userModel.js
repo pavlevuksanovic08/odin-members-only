@@ -14,3 +14,11 @@ exports.getUserByUsername = async (username) => {
         `, [username])
     return rows[0];
 }
+
+exports.addToClub = async (id) => {
+    await pool.query(`
+            UPDATE users
+            SET membership_status = 'member'
+            WHERE id = $1;
+        `, [id]);
+}

@@ -74,3 +74,15 @@ exports.postLogIn = (req, res, next) => {
         failureRedirect: "/"
     })(req, res, next)
 }
+
+exports.postJoinTheClub = async (req, res) => {
+    const userPasscode = req.body.code;
+    const id = req.user.id;
+
+    if (userPasscode === process.env.JOIN_SECRET) {
+        await userModel.addToClub(id);
+        return res.redirect('/')
+    } else {
+        return res.render("jointheclub", {error: 'Wrong passcode.'});
+    }
+}
