@@ -8,8 +8,21 @@
 <body>
     <% if (locals.user) { %>
         <p>You are loged in</p>
+        <a href="/join-the-club">
+            <button>Join the Club</button>
+        </a>
     <%} else {%>
-        <p>You are not loged in</p>
+        <h1>Members only club</h1>
+        <h2>Welcome back!</h2>
+        <p>Please enter your details to access your account.</p>
+        <a href="/log-in">
+            <button>Log in</button>
+        </a>
+        <h2>Create an Account</h2>
+        <p>Join our community and enjoy all the benefits.</p>
+        <a href="/sing-up">
+            <button>Sing up</button>
+        </a>   
     <%}%>
 </body>
 </html>
