@@ -10,6 +10,7 @@ const bcryptjs = require('bcryptjs');
 
 const app = express();
 const indexRouter = require('./routes/indexRouter')
+const messageRouter = require('./routes/messageRotuer')
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -55,6 +56,7 @@ passport.deserializeUser(async (id, done) => {
     }
 })
 
+app.use('/message', messageRouter)
 app.use('/', indexRouter);
 
 app.use((err, req, res, next) => {
