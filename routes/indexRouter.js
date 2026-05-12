@@ -2,8 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 const authController = require('../controllers/authentication');
+const indexController = require('../controllers/index')
 
-router.get('/', (req, res) => res.render("index", {user: req.user}));
+router.get('/', indexController.indexController);
 router.get('/sing-up', authController.getSingUp);
 router.post('/sing-up', authController.postSingUp);
 router.get('/log-in', authController.getLogIn);

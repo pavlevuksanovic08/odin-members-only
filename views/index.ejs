@@ -14,6 +14,12 @@
         <a href="/message/create">
             <button>Create new message</button>
         </a>
+        <% messages.forEach(m => { %>
+            <h2><%= m.title%></h2>
+            <p><%=m.message%></p>
+            <p><%=m.datetime%></p>
+            <p><%=m.username%></p>
+        <%})%>
     <%} else {%>
         <h1>Members only club</h1>
         <h2>Welcome back!</h2>
@@ -25,7 +31,13 @@
         <p>Join our community and enjoy all the benefits.</p>
         <a href="/sing-up">
             <button>Sing up</button>
-        </a>   
+        </a>
+        <% messages.forEach(m => { %>
+            <h2><%= m.title%></h2>
+            <p><%=m.message%></p>
+            <p><%=m.datetime%></p>
+            <p><%=m.username%></p>
+        <%})%> 
     <%}%>
 </body>
 </html>
