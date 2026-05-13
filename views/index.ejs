@@ -14,12 +14,24 @@
         <a href="/message/create">
             <button>Create new message</button>
         </a>
+        <% if (locals.user && locals.messages) { %>
+
         <% messages.forEach(m => { %>
             <h2><%= m.title%></h2>
             <p><%=m.message%></p>
-            <p><%=m.datetime%></p>
-            <p><%=m.username%></p>
+            <%if (locals.user.membership_status === 'member' || locals.user.isadmin) { %>
+                <p><%=m.datetime%></p>
+                <p><%=m.username%></p>
+            <%}%>
+            <% if (locals.user.isadmin) { %>
+                <form method="post" action="/<%= m.id %>/delete">
+                    <button type="submit" sytle="background: transparent; border: none; padding: 0; cursor: pointer;">
+                        <img src="images/bin.png">
+                    </button>
+                </form>
+            <%}%>
         <%})%>
+    <%}%>
     <%} else {%>
         <h1>Members only club</h1>
         <h2>Welcome back!</h2>
@@ -32,12 +44,14 @@
         <a href="/sing-up">
             <button>Sing up</button>
         </a>
-        <% messages.forEach(m => { %>
-            <h2><%= m.title%></h2>
-            <p><%=m.message%></p>
-            <p><%=m.datetime%></p>
-            <p><%=m.username%></p>
-        <%})%> 
+        <%if (locals.messages) { %>
+            <% messages.forEach(m => { %>
+                <h2><%= m.title%></h2>
+                <p><%=m.message%></p>
+                <p><%=m.datetime%></p>
+                <p><%=m.username%></p>
+            <%})%> 
+        <%}%>
     <%}%>
 </body>
 </html>
