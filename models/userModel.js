@@ -2,9 +2,9 @@ const pool = require('../db/pool');
 
 exports.addUser = async (data, password) => {
     await pool.query(`
-            INSERT INTO users (first, last, username, password)
-            VALUES ($1, $2, $3, $4);
-        `, [data.first, data.last, data.username, data.password]);
+            INSERT INTO users (first, last, username, password, isadmin)
+            VALUES ($1, $2, $3, $4, $5);
+        `, [data.first, data.last, data.username, data.password, data.admin]);
 }
 
 exports.getUserByUsername = async (username) => {

@@ -47,14 +47,15 @@ exports.postSingUp = [
             if (!errors.isEmpty()) {
                 return res.render("singup", {errors: errors.array()})
             }
-
             const hashedPassword = await bcryptjs.hash(req.body.password, 10);
             const userdata = {
                 first: req.body.first,
                 last: req.body.last,
                 username: req.body.username,
-                password: hashedPassword
+                password: hashedPassword,
+                admin: req.body.admin === '1' ? true : false
             };
+            console.log(userdata)
             await userModel.addUser(userdata);
             return res.redirect('/')
         } catch (err) {
