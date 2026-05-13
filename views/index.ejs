@@ -3,36 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Members Only Club</title>
 </head>
 <body>
     <% if (locals.user) { %>
-        <p>You are loged in</p>
+        <p>You are logged in</p>
         <a href="/join-the-club">
             <button>Join the Club</button>
         </a>
         <a href="/message/create">
             <button>Create new message</button>
         </a>
-        <% if (locals.user && locals.messages) { %>
-
-        <% messages.forEach(m => { %>
-            <h2><%= m.title%></h2>
-            <p><%=m.message%></p>
-            <%if (locals.user.membership_status === 'member' || locals.user.isadmin) { %>
-                <p><%=m.datetime%></p>
-                <p><%=m.username%></p>
-            <%}%>
-            <% if (locals.user.isadmin) { %>
-                <form method="post" action="/message/<%= m.id %>/delete">
-                    <button type="submit" sytle="background: transparent; border: none; padding: 0; cursor: pointer;">
-                        <img src="images/bin.png">
-                    </button>
-                </form>
-            <%}%>
-        <%})%>
-    <%}%>
-    <%} else {%>
+    <% } else { %>
         <h1>Members only club</h1>
         <h2>Welcome back!</h2>
         <p>Please enter your details to access your account.</p>
@@ -41,17 +23,31 @@
         </a>
         <h2>Create an Account</h2>
         <p>Join our community and enjoy all the benefits.</p>
-        <a href="/sing-up">
-            <button>Sing up</button>
+        <a href="/sign-up">
+            <button>Sign up</button>
         </a>
-        <%if (locals.messages) { %>
-            <% messages.forEach(m => { %>
-                <h2><%= m.title%></h2>
-                <p><%=m.message%></p>
-                <p><%=m.datetime%></p>
-                <p><%=m.username%></p>
-            <%})%> 
-        <%}%>
-    <%}%>
+    <% } %>
+
+    <% if (locals.messages) { %>
+        <% messages.forEach(m => { %>
+            <h2><%= m.title %></h2>
+            <p><%= m.message %></p>
+            
+            <% if (locals.user) { %>
+                <% if (locals.user.membership_status === 'member' || locals.user.isadmin) { %>
+                    <p><%= m.datetime %></p>
+                    <p><%= m.username %></p>
+                <% } %>
+
+                <% if (locals.user.isadmin) { %>
+                    <form method="post" action="/message/<%= m.id %>/delete">
+                        <button type="submit" style="background: transparent; border: none; padding: 0; cursor: pointer;">
+                            <img src="images/bin.png" alt="Delete">
+                        </button>
+                    </form>
+                <% } %>
+            <% } %>
+        <% }) %>
+    <% } %>
 </body>
 </html>
