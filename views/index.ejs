@@ -24,7 +24,7 @@
                 <p><%=m.username%></p>
             <%}%>
             <% if (locals.user.isadmin) { %>
-                <form method="post" action="/<%= m.id %>/delete">
+                <form method="post" action="/message/<%= m.id %>/delete">
                     <button type="submit" sytle="background: transparent; border: none; padding: 0; cursor: pointer;">
                         <img src="images/bin.png">
                     </button>

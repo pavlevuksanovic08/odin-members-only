@@ -20,7 +20,14 @@ exports.getAllMessagesWAuthor = async () => {
             select u.id, title, message, datetime, username, isadmin, membership_status
             from messages m
             join users u
-            on u.id = m.id;
+            on u.id = m.userid;
         `)
     return rows;
+}
+
+exports.deleteMessage = async (id) => {
+    await pool.query(`
+            delete from messages
+            where id = $1;
+        `, [id]);
 }

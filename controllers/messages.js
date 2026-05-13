@@ -22,3 +22,11 @@ exports.postCreateMessage = async (req, res) => {
     }
     
 }
+
+exports.postDeleteMessage = async (req, res) => {
+    const id = req.params.id;
+    
+    await messageModel.deleteMessage(id);
+
+    res.redirect('/');
+}
