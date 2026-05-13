@@ -17,7 +17,7 @@ exports.getAllMessages = async () => {
 
 exports.getAllMessagesWAuthor = async () => {
     const { rows } = await pool.query(`
-            select title, message, datetime, username
+            select u.id, title, message, datetime, username, isadmin, membership_status
             from messages m
             join users u
             on u.id = m.id;
