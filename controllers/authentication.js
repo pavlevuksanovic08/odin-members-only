@@ -55,9 +55,13 @@ exports.postSingUp = [
                 password: hashedPassword,
                 admin: req.body.admin === '1' ? true : false
             };
-            console.log(userdata)
-            await userModel.addUser(userdata);
-            return res.redirect('/')
+            const newUser = await userModel.addUser(userdata);
+            
+            req.login(newUser, (err) => {
+                if (err) return next(err);
+                return res.redirect('/')
+            })
+
         } catch (err) {
             console.error(err);
             next(err);
