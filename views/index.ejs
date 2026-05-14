@@ -10,9 +10,9 @@
     <div class="container">
         <% if (locals.user) { %>
             <nav style="display: flex; gap: 12px; margin-bottom: 24px;">
-                <a href="/join-the-club"><button>Join the Club</button></a>
-                <a href="/message/create"><button>Create new message</button></a>
-                <form action="/log-out" method="post">
+                <a href="/join-the-club"><button type="button">Join the Club</button></a>
+                <a href="/message/create"><button type="button">Create new message</button></a>
+                <form action="/log-out" method="post" style="margin: 0; padding: 0;">
                     <button type="submit">Log Out</button>
                 </form>
             </nav>
