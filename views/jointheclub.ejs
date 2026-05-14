@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Join the club</h1>
-    <form method="post" action="/join-the-club">
-        <label id="code">Enter the secret code</label>
-        <input type="text" name="code" id="code">
-        <button type="submit">Enter</button>
-    </form>
-    <% if (locals.error) {%>
-        <p><%= error %></p>
-    <%}%>
+    <div class="container">
+        <h1>Join the club</h1>
+        <form method="post" action="/join-the-club">
+            <label for="code">Enter the secret code</label>
+            <input type="text" name="code" id="code">
+            <button type="submit">Enter</button>
+        </form>
+        <% if (locals.error) { %>
+            <div class="error"><%= error %></div>
+        <% } %>
+    </div>
 </body>
 </html>

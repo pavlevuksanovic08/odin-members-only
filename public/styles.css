@@ -1,0 +1,167 @@
+
+
+
+/* Modern, clean styling for Members Only mini app */
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f8fa;
+  color: #222;
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+header, h1, h2, h3 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(44,62,80,0.06);
+  padding: 32px 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: -12px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f9fafb;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, textarea:focus {
+  border-color: #4f8cff;
+  box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.15);
+  outline: none;
+}
+
+button, .btn-link {
+  width: 100%;
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover, .btn-link:hover {
+  background: #2563eb;
+}
+
+.error, .alert {
+  color: #d32f2f;
+  background: #ffeaea;
+  border: 1px solid #f8bbbc;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.success {
+  color: #388e3c;
+  background: #eaffea;
+  border: 1px solid #b2f2bb;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.message-list {
+  margin: 32px 0;
+}
+
+.message {
+  background: #f4f7fb;
+  border-radius: 8px;
+  padding: 18px 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.04);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-left: 5px solid #2563eb;
+}
+
+.message .meta {
+  font-size: 0.95em;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.deleteBtn {
+
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  background: #f4f7fb;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteBtn:hover {
+    background: #f4f7fb;
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+a {
+  color: #4f8cff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 18px 6px;
+  }
+}
