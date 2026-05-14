@@ -11,5 +11,6 @@ router.get('/log-in', authController.getLogIn);
 router.post('/log-in', authController.postLogIn);
 router.get('/join-the-club', (req, res) => res.render("jointheclub"))
 router.post('/join-the-club', authController.postJoinTheClub)
+router.post('/log-out', authController.postLogOut)
 
 module.exports = router;

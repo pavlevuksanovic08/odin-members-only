@@ -91,3 +91,11 @@ exports.postJoinTheClub = async (req, res) => {
         return res.render("jointheclub", {error: 'Wrong passcode.'});
     }
 }
+
+exports.postLogOut = async (req, res, next) => {
+    req.logout((err) => {
+        if (err) return next(err);
+
+        res.redirect("/")
+    })
+}

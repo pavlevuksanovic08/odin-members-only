@@ -12,6 +12,9 @@
             <nav style="display: flex; gap: 12px; margin-bottom: 24px;">
                 <a href="/join-the-club"><button>Join the Club</button></a>
                 <a href="/message/create"><button>Create new message</button></a>
+                <form action="/log-out" method="post">
+                    <button type="submit">Log Out</button>
+                </form>
             </nav>
         <% } else { %>
             <h1>Members only club</h1>
